@@ -9,7 +9,7 @@ class Vaga extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['titulo', 'descricao', 'tipo', 'ativa'];
+    protected $fillable = ['titulo', 'descricao', 'tipo', 'ativa', 'pausada'];
 
     public function candidatos()
     {

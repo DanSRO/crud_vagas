@@ -17,6 +17,8 @@
         </select>
         <label for="ativa">Ativa:</label>
         <input type="checkbox" name="ativa" checked>
-        <button type="submit">Salvar</button>
+        <button type="submit">Salvar Vaga</button>
     </form>
+    <br>
+    <a href="/">Voltar à Página Principal</a>
 @endsection

@@ -1,9 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>Lista de Candidatos</h1>
-
-    <a href="{{ route('candidatos.create') }}">Criar Novo Candidato</a>
+    <h1>Lista de Candidatos</h1>    
 
     @if(count($candidatos) > 0)
         <ul>
@@ -23,4 +21,7 @@
     @else
         <p>Nenhum candidato encontrado.</p>
     @endif
+    <a href="{{ route('candidatos.create') }}">Criar Novo Candidato</a><br><br>
+    <a href="/">Voltar à Página Principal</a>
+
 @endsection

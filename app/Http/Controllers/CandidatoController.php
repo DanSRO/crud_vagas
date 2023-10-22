@@ -21,9 +21,9 @@ class CandidatoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required',
+            'nome' => 'required|string\max:255',
             'email' => 'required|email|unique:candidatos',
-            'experiencia' => 'required',
+            'experiencia' => 'required|string',
         ]);
 
         Candidato::create([

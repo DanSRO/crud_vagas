@@ -13,4 +13,6 @@
         <textarea name="experiencia" id="experiencia" rows="4" required>{{old('experiencia')}}</textarea>
         <button type="submit">Salvar Candidato</button>
     </form>
+    <br>
+    <a href="/">Voltar à Página Principal</a>
 @endsection

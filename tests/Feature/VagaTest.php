@@ -17,4 +17,30 @@ class VagaTest extends TestCase
             'id' => $vaga->id,
         ]);
     }
+
+    public function testTituloIsRequired()
+    {
+        $this->expectException(\Illuminate\Validation\ValidationException::class);
+
+        Vaga::create([
+            'descricao' => 'Teste de descrição',
+            'tipo' => 'CLT',
+            'ativa' => true,
+        ]);
+    }
+
+    public function test_vaga_creation()
+    {
+        $vagaData = [
+            'titulo' => 'Nova Vaga',
+            'descricao' => 'Descrição da nova vaga',
+            'tipo' => 'CLT',
+            'ativa' => true,
+        ];
+
+        $vaga = Vaga::create($vagaData);
+
+        $this->assertEquals($vagaData['titulo'], $vaga->titulo);
+        $this->assertEquals($vagaData['descricao'], $vaga->descricao);        
+    }
 }
