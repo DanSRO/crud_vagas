@@ -14,6 +14,6 @@
         <button type="submit">Atualizar Candidato</button>
     </form>
     <br>
-    <a href="/">Voltar à Página Principal</a>
+    <a href="{{ route('candidatos.index') }}"><button>Voltar à Lista de Candidatos</button></a>
 
 @endsection

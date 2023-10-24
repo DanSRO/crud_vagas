@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VagasController;
+use App\Http\Controllers\CandidatosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::prefix('api')->group(function () {
+    Route::get('/vagas', [VagasController::class, 'index']);
+    Route::get('/vagas/{id}', [VagasController::class, 'show']);
+    Route::post('/vagas', [VagasController::class, 'store']);
 });

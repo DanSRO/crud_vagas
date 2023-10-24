@@ -37,5 +37,5 @@
 
         <button type="submit">Atualizar Vaga</button>
     </form>
-    <a href="/">Voltar para a página principal.</a>
+    <a href="/"><button>Voltar para a página principal.</button></a>
 @endsection

@@ -26,21 +26,20 @@ class VagaTest extends TestCase
             'descricao' => 'Teste de descrição',
             'tipo' => 'CLT',
             'ativa' => true,
+            'titulo' => 'Qualquer'
         ]);
     }
 
     public function test_vaga_creation()
     {
-        $vagaData = [
-            'titulo' => 'Nova Vaga',
-            'descricao' => 'Descrição da nova vaga',
+        $response = $this->post(route('vagas.store'), [
+            'descricao' => 'Teste de descrição',
             'tipo' => 'CLT',
             'ativa' => true,
-        ];
-
-        $vaga = Vaga::create($vagaData);
-
-        $this->assertEquals($vagaData['titulo'], $vaga->titulo);
-        $this->assertEquals($vagaData['descricao'], $vaga->descricao);        
+            'titulo' => 'Um titulo'
+        ]);
+    
+        $response->assertRedirect(route('vagas.index'));
+        $this->assertDatabaseCount('vagas', 1);               
     }
 }

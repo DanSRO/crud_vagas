@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Lista de Vagas</h1>
-    <a href="{{ route('vagas.create') }}">Criar Nova Vaga</a>
+    
     <table>
         <thead>
             <tr>
@@ -20,12 +20,12 @@
                     <td>{{ $vaga->descricao }}</td>
                     <td>{{ $vaga->tipo }}</td>
                     <td>{{ $vaga->ativa ? 'Ativa' : 'Pausada' }}</td>
-                    <td>
-                        <a href="{{ route('vagas.edit', $vaga) }}">Editar</a>
+                    <td style="text-align: center;">
+                        <a href="{{ route('vagas.edit', $vaga) }}"><button>Editar</button></a>
                         <form action="{{ route('vagas.destroy', $vaga) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Excluir</button>
+                            <button style="background-color: red;" type="submit">Excluir</button>
                         </form>
 
                         @if($vaga->ativa)
@@ -47,7 +47,8 @@
     
     <p>Total de Vagas: {{ $vagas->total() }}</p>
     {{ $vagas->links() }}
-    <br>
-    <a href="/">Voltar à Página Principal</a>
+    <br><br>
+    <a href="{{ route('vagas.create') }}"><button>Criar Nova Vaga</button></a><br><br>
+    <a href="/"><button>Voltar à Página Principal</button></a>
 @endsection
 

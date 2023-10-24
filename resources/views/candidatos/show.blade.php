@@ -6,6 +6,6 @@
     <p><strong>Email:</strong> {{ $candidato->email }}</p>
     <p><strong>Experiência:</strong> {{ $candidato->experiencia }}</p>
     <a href="{{ route('candidatos.edit', $candidato) }}">Editar</a><br><br>
-    <a href="/">Voltar à Página Principal</a>
+    <a href="/"><button>Voltar à Página Principal</button></a>
 
 @endsection

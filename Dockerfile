@@ -1,0 +1,42 @@
+# Use a imagem oficial do PHP
+FROM php:7.4-fpm
+
+# Atualize os pacotes e instale as dependências necessárias
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql
+
+# Instale o Composer globalmente
+#RUN curl -sS https://getcomposer.org/installer | php
+#-- --install-dir=/usr/local/bin --filename=composer
+
+# Install composer
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+RUN set -eux
+
+# Configure o usuário do PHP-FPM para corresponder ao usuário no seu sistema local
+RUN usermod -u 1000 www-data
+
+RUN chmod -R 755 /var/*
+
+# Defina o diretório de trabalho como a raiz
+WORKDIR /
+
+# Copie os arquivos do aplicativo Laravel para o contêiner
+COPY . .
+
+# Instale as dependências do Composer
+RUN composer install
+
+#RUN php artisan serve
+# Exponha a porta 9000 para o PHP-FPM
+
+EXPOSE 9000
+
+CMD ["php", "artisan", "serve", "--host", "0.0.0.0", "--port=9000"]
