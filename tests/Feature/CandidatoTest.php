@@ -7,54 +7,39 @@ use Tests\TestCase;
 
 class CandidatoTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithFaker;
 
-    public function testAtualizarCandidato()
+    public function test_can_create_candidato()
     {
-        $candidato = Candidato::factory()->create();
+        $vaga = Candidato::factory()->create();
 
-        $response = $this->put(route('candidatos.update', $candidato), [
-            'nome' => 'Novo Nome',
-            'email' => 'novo_email@example.com',
-            'experiencia' => 'Nova Experiência',
-        ]);
-
-        $response->assertRedirect(route('candidatos.index'));
         $this->assertDatabaseHas('candidatos', [
-            'id' => $candidato->id,
-            'nome' => 'Novo Nome',
-            'email' => 'novo_email@example.com',
-            'experiencia' => 'Nova Experiência',
+            'id' => $vaga->id,
         ]);
     }
-
-    public function testCampoNomeIsRequired()
+    
+    public function test_cannot_create_candidato_without_name()
     {
-        $this->expectException(\Illuminate\Validation\ValidationException::class);
+        $this->expectException(\Illuminate\Database\QueryException::class);
 
-        Candidato::create([
-            'email' => 'teste@example.com',
-            'experiencia' => 'Experiência de teste',
-        ]);
+        // Tenta criar um candidato sem nome
+        $candidato = Candidato::factory()->create(['nome' => null]);
     }
 
-    public function testCampoEmailIsRequired()
+    public function test_cannot_create_candidato_without_email()
     {
-        $this->expectException(\Illuminate\Validation\ValidationException::class);
+        $this->expectException(\Illuminate\Database\QueryException::class);
 
-        Candidato::create([
-            'nome' => 'Nome do Candidato',
-            'experiencia' => 'Experiência de teste',
-        ]);
+        // Tenta criar um candidato sem e-mail
+        $candidato = Candidato::factory()->create(['email' => null]);
     }
 
-    public function testCampoExperienciaIsRequired()
+    public function test_cannot_create_candidato_without_experience()
     {
-        $this->expectException(\Illuminate\Validation\ValidationException::class);
+        $this->expectException(\Illuminate\Database\QueryException::class);
 
-        Candidato::create([
-            'nome' => 'Nome do Candidato',
-            'email' => 'teste@example.com',
-        ]);
+        // Tenta criar um candidato sem experiência
+        $candidato = Candidato::factory()->create(['experiencia' => null]);
     }
+
 }

@@ -20,5 +20,5 @@
         <button type="submit">Salvar Vaga</button>
     </form>
     <br>
-    <a href="/">Voltar à Página Principal</a>
+    <a href="/"><button>Voltar à Página Principal</button></a>
 @endsection

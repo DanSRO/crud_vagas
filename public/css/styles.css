@@ -55,7 +55,14 @@ input, textarea, select {
     margin-bottom: 10px;
 }
 
-button {
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Estilo padrão para botões */
+.button {
     background-color: #333;
     color: white;
     padding: 10px;
@@ -63,16 +70,30 @@ button {
     cursor: pointer;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+/* Estilo para botões ao passar o mouse */
+.button:hover {
+    background-color: #555;
 }
 
-.button-container {
-    margin-top: 10px;
+/* Estilo específico para o botão "Voltar à Lista de Candidatos" */
+.button.btn-voltar {
+    background-color: #3498db;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-.button-container a {
-    margin-right: 10px;
+/* Estilo específico para o botão "Voltar à Lista de Candidatos" ao passar o mouse */
+.button.btn-voltar:hover {
+    background-color: #2980b9;
+}
+
+/* Estilo para botões de excluir */
+.button.btn-excluir {
+    background-color: #e74c3c; /* Vermelho para indicar perigo */
+}
+
+/* Estilo para botões de excluir ao passar o mouse */
+.button.btn-excluir:hover {
+    background-color: #c0392b; /* Tom mais escuro de vermelho ao passar o mouse */
 }

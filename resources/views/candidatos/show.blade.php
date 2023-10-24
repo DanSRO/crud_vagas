@@ -6,6 +6,6 @@
     <p><strong>Email:</strong> {{ $candidato->email }}</p>
     <p><strong>Experiência:</strong> {{ $candidato->experiencia }}</p>
     <a href="{{ route('candidatos.edit', $candidato) }}">Editar</a><br><br>
-    <a href="/"><button>Voltar à Página Principal</button></a>
+    <a href="{{ route('candidatos.index')}}"><button class="btn-voltar">Voltar à Lista de Candidatos</button></a>
 
 @endsection

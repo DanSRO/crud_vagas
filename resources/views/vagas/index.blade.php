@@ -21,6 +21,7 @@
                     <td>{{ $vaga->tipo }}</td>
                     <td>{{ $vaga->ativa ? 'Ativa' : 'Pausada' }}</td>
                     <td style="text-align: center;">
+                        <a href="{{ route('vagas.show', $vaga->id) }}"><button>Detalhes</button></a>&nbsp;
                         <a href="{{ route('vagas.edit', $vaga) }}"><button>Editar</button></a>
                         <form action="{{ route('vagas.destroy', $vaga) }}" method="POST">
                             @csrf
