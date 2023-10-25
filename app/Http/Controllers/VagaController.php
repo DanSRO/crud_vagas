@@ -8,13 +8,26 @@ use Illuminate\Validation\Rule;
 
 class VagaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $vagas = Vaga::paginate(20);
-        // $vagas = Vaga::all();
-        // $totalVagas = Vaga::count();
-        return view('vagas.index', compact('vagas')); //['vagas'=>$vagas, $totalVagas]);
-    }
+        if ($request->has('limpar')) {
+            return redirect()->route('vagas.index');
+        }
+        
+        $termoPesquisa = $request->input('search');
+    
+        // Se houver um termo de pesquisa, realiza a busca
+        if ($termoPesquisa) {
+            $vagas = Vaga::where('titulo', 'like', "%$termoPesquisa%")
+                ->orWhere('descricao', 'like', "%$termoPesquisa%")
+                ->paginate(20);
+        } else {
+            // Se não houver termo de pesquisa, obtém todas as vagas paginadas
+            $vagas = Vaga::paginate(20);
+        }
+    
+        return view('vagas.index', compact('vagas'));
+    }    
 
     public function create()
     {

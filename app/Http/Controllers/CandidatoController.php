@@ -7,9 +7,24 @@ use Illuminate\Http\Request;
 
 class CandidatoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $candidatos = Candidato::all();
+        if ($request->has('limpar')) {
+            return redirect()->route('candidatos.index');
+        }
+        
+        $termoPesquisa = $request->input('search');
+    
+        // Se houver um termo de pesquisa, realiza a busca
+        if ($termoPesquisa) {
+            $candidatos = Candidato::where('nome', 'like', "%$termoPesquisa%")
+                ->orWhere('email', 'like', "%$termoPesquisa%")
+                ->paginate(20);
+        } else {
+            // Se não houver termo de pesquisa, obtém todas os candidatos paginados
+            $candidatos = Candidato::paginate(20);
+        }
+    
         return view('candidatos.index', compact('candidatos'));
     }
 

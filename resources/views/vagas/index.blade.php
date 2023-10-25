@@ -2,7 +2,14 @@
 
 @section('content')
     <h1>Lista de Vagas</h1>
-    
+        <form action="{{ route('vagas.index') }}" method="GET">
+            <div class="form-group">
+                <label for="search">Pesquisar Vagas:</label>
+                <input type="text" class="form-control" id="search" name="search" placeholder="Digite o termo de pesquisa">
+            </div>
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
+            <a href="{{ route('vagas.index') }}" class="btn btn-secondary"><button>Limpar</button></a>
+        </form>
     <table>
         <thead>
             <tr>

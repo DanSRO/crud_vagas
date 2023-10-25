@@ -1,7 +1,15 @@
 @extends('layout')
 
 @section('content')
-    <h1>Lista de Candidatos</h1>    
+    <h1>Lista de Candidatos</h1>
+        <form action="{{ route('candidatos.index') }}" method="GET">
+            <div class="form-group">
+                <label for="search">Pesquisar Candidatos:</label>
+                <input type="text" class="form-control" id="search" name="search" placeholder="Digite o termo de pesquisa">
+            </div>
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
+            <a href="{{ route('candidatos.index') }}" class="btn btn-secondary"><button>Limpar</button></a>
+        </form>
     <table>
         <thead>
             <tr>

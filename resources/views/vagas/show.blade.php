@@ -13,4 +13,5 @@
 </p>
 <a href="{{route('vagas.edit', $vaga)}}"><button>Editar</button></a><br><br>
 <a href="{{route('vagas.index')}}"><button>Voltar para a Lista de Vagas</button></a>
+
 @endsection
