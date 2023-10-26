@@ -38,7 +38,6 @@ Route::post('candidatos/store', [CandidatoController::class, 'store'])->name('ca
 Route::get('candidatos/{candidato}', [CandidatoController::class, 'show'])->name('candidatos.show');
 Route::get('candidatos/{candidato}/edit', [CandidatoController::class, 'edit'])->name('candidatos.edit');
 Route::put('candidatos/{candidato}', [CandidatoController::class, 'update'])->name('candidatos.update');
-<<<<<<< HEAD
 Route::delete('candidatos/{candidato}', [CandidatoController::class, 'destroy'])->name('candidatos.destroy');
 Route::middleware([
     'auth:sanctum',
@@ -49,6 +48,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-=======
-Route::delete('candidatos/{candidato}', [CandidatoController::class, 'destroy'])->name('candidatos.destroy');
->>>>>>> 23071a97067ad8a3e3358bcb21981ad06d4051a9
