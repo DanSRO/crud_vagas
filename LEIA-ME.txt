@@ -12,8 +12,14 @@ Use o comando para subir o ambiente do projeto (sem aspas): ' docker-compose up 
 
 O projeto estará rodando em: 'http://localhost:8888 ;
 
-Para fazer as migrations use o comando: 'php artisan migrate:fresh';
+Para fazer as migrations use 'docker exec -it nome-do-seu-container php artisan migrate' (sem aspas)
+
+Para refazer as migrations use o comando: 'docker exec -it nome-do-seu-container php artisan migrate:fresh'( Atenção:'Esse comando irá apagar dados das tabelas');
+
+Detalhe: Em meu projeto usei container de nome 'crud_vagas-app-1';
+
+Para usar comandos no terminal inicie com 'docker exec -it nome-do-seu-container' (sem aspas);
 
 Na página inicial há links para listar vagas ou candidatos;
 
-Caso não haja dados tem as opções de criar vagas ou criar candidatos;
+Caso não haja dados há opções de criar vagas ou criar candidatos;

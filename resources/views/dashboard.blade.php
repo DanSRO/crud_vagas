@@ -10,10 +10,15 @@
             <!-- Exibir informações sobre cada vaga -->
             <p>{{ $vaga->titulo }}</p>
             <p>{{ $vaga->descricao }}</p>
-            <p>{{ $vaga-tipo }}</p>
-            <p>{{ $vaga->ativa }}</p>            
+            <p>{{ $vaga->tipo }}</p>
+            <p>{{ $vaga->ativa ? 'Ativa' : 'Pausada' }}</p>            
         @endforeach
     @else
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <p>Você ainda não tem vagas cadastradas, <a href="/vagas/create">Criar Vaga</a></p>
     @endif
 </div>

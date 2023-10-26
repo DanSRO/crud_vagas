@@ -32,6 +32,10 @@ WORKDIR /
 COPY . .
 
 # Instale as dependências do Composer
+RUN cd /var/www/
+
+RUN composer update --no-scripts
+
 RUN composer install
 
 #RUN php artisan serve

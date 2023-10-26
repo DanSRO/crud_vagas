@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/'; //futuramente retornar para dashboard para listar vagas que está escrito
+    public const HOME = '/dashboard'; //futuramente retornar para dashboard para listar vagas que está escrito
 
     /**
      * The controller namespace for the application.
