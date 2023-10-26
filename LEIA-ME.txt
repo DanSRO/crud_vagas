@@ -1,0 +1,19 @@
+Instruções para uso do projeto:
+
+Comandos baseados em ambiente Windows;
+
+Primeiro passo:
+
+Após baixar o projeto em https://github.com/DanSRO/crud_vagas ;
+
+É necessário ter em sua máquina já instalado o Docker; 
+
+Use o comando para subir o ambiente do projeto (sem aspas): ' docker-compose up ' ;
+
+O projeto estará rodando em: 'http://localhost:8888 ;
+
+Para fazer as migrations use o comando: 'php artisan migrate:fresh';
+
+Na página inicial há links para listar vagas ou candidatos;
+
+Caso não haja dados tem as opções de criar vagas ou criar candidatos;
