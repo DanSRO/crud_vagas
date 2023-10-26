@@ -229,3 +229,7 @@ table {
 .dashboard-events-container form{
     display: inline-block;
 }
+
+.container-fluid{
+    padding: 0;
+}

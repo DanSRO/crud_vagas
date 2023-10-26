@@ -1,15 +1,20 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layout')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@section('content')
+<div class="col-md-10 offset-md-1 dashboard-title-container">
+    <h1>Minhas vagas</h1>
+</div>
+<div class="col-md-10 offset-md-1 dashboard-events-container">
+    @if(!empty($vagas))
+    @foreach($vagas as $vaga)
+            <!-- Exibir informações sobre cada vaga -->
+            <p>{{ $vaga->titulo }}</p>
+            <p>{{ $vaga->descricao }}</p>
+            <p>{{ $vaga-tipo }}</p>
+            <p>{{ $vaga->ativa }}</p>            
+        @endforeach
+    @else
+    <p>Você ainda não tem vagas cadastradas, <a href="/vagas/create">Criar Vaga</a></p>
+    @endif
+</div>
+@endsection

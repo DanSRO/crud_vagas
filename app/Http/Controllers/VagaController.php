@@ -8,6 +8,12 @@ use Illuminate\Validation\Rule;
 
 class VagaController extends Controller
 {
+    public function dashboard()
+    {
+        $vagas = Vaga::all();
+        return view('dashboard', ['vagas' => $vagas]);
+    }
+
     public function index(Request $request)
     {
         if ($request->has('limpar')) {

@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('vagas', [VagaController::class, 'dashboard'])->name('vagas.dashboard');
+
 Route::resource('vagas', VagaController::class);
 Route::get('vagas', [VagaController::class, 'index'])->name('vagas.index');
 Route::get('vagas/create', [VagaController::class, 'create'])->name('vagas.create');
