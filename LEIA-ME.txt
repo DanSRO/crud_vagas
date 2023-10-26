@@ -22,4 +22,4 @@ Para usar comandos no terminal inicie com 'docker exec -it nome-do-seu-container
 
 Na página inicial há links para listar vagas ou candidatos;
 
-Caso não haja dados há opções de criar vagas ou criar candidatos;
+Caso não haja dados há opções de criar vagas ou criar candidatos.
