@@ -38,9 +38,8 @@ RUN composer update --no-scripts
 
 RUN composer install
 
-#RUN php artisan serve
-# Exponha a porta 9000 para o PHP-FPM
-
 EXPOSE 9000
+
+RUN cd /var/www/
 
 CMD ["php", "artisan", "serve", "--host", "0.0.0.0", "--port=9000"]

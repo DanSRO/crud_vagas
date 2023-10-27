@@ -10,15 +10,15 @@ Após baixar o projeto em https://github.com/DanSRO/crud_vagas ;
 
 Use o comando para subir o ambiente do projeto (sem aspas): ' docker-compose up ' ;
 
+Para fazer as migrations use 'docker exec -it crud_vagas-app-1 php artisan migrate' (sem aspas);
+
+Para refazer as migrations use o comando: 'docker exec -it crud_vagas-app-1 php artisan migrate:fresh'( Atenção:'Esse comando irá apagar dados das tabelas');
+
+Detalhe: O nome do container é 'crud_vagas-app-1' use o comando docker ps para verificar o nome, caso haja diferença;
+
+Para usar comandos do php artisan no terminal primeiro inicie com 'docker exec -it' (sem aspas);
+
 O projeto estará rodando em: 'http://localhost:8888 ;
-
-Para fazer as migrations use 'docker exec -it nome-do-seu-container php artisan migrate' (sem aspas)
-
-Para refazer as migrations use o comando: 'docker exec -it nome-do-seu-container php artisan migrate:fresh'( Atenção:'Esse comando irá apagar dados das tabelas');
-
-Detalhe: Em meu projeto usei container de nome 'crud_vagas-app-1';
-
-Para usar comandos no terminal inicie com 'docker exec -it nome-do-seu-container' (sem aspas);
 
 Na página inicial há links para listar vagas ou candidatos;
 
