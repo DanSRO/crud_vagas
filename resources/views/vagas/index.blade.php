@@ -59,4 +59,3 @@
     <a href="{{ route('vagas.create') }}"><button>Criar Nova Vaga</button></a><br><br>
     <a href="/"><button>Voltar à Página Principal</button></a>
 @endsection
-

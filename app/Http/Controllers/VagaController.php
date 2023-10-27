@@ -12,6 +12,9 @@ class VagaController extends Controller
     {
         $vagas = Vaga::all();
         return view('dashboard', ['vagas' => $vagas]);
+        // $user = auth()->user();
+        // $vagas = $user->vagas;        
+        // return view('vagas.dashboard', ['vagas' => $vagas]);
     }
 
     public function index(Request $request)
@@ -57,6 +60,8 @@ class VagaController extends Controller
         $novaVaga->pausada = $request->has('pausada'); // Checkbox pausada está marcado
     
         // Salva nova vaga no banco de dados
+        $user = auth()->user();
+        $novaVaga = $user->vagas; 
         $novaVaga->save();
     
         // Redireciona para a página de listagem após a criação
